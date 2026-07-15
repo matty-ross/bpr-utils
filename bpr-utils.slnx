@@ -1,0 +1,7 @@
+<Solution>
+  <Configurations>
+    <Platform Name="x64" />
+    <Platform Name="x86" />
+  </Configurations>
+  <Project Path="bpr-utils.vcxproj" Id="58d994f4-ddad-44d3-96cd-590941114e62" />
+</Solution>
