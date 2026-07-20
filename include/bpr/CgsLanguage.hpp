@@ -6,8 +6,10 @@
 
 namespace BPR
 {
-    // CgsLanguage::LanguageManager::ParameterFormatType
-    enum class TextFormatType
+    /*
+        enum CgsLanguage::LanguageManager::ParameterFormatType
+    */
+    enum class LanguageManager_TextFormatType
     {
         Text = 0,                     // "text" -> "text"
         TimeOfDay = 1,                // "12345.6789" -> "03:25 am"
@@ -37,15 +39,22 @@ namespace BPR
         Unknown2 = 25,                // "12345.6789" -> "12,345 "
     };
 
-    
-    // bool __thiscall CgsLanguage::LanguageManager::FormatText(char*, uint32_t, const char*, CgsLanguage::LanguageManager::ParameterFormatType)
-    inline bool LanguageManager_FormatText(char* buffer, uint32_t bufferSize, const char* text, TextFormatType format)
+
+    /*
+        bool __thiscall CgsLanguage::LanguageManager::FormatText(
+            char* lpcTarget,
+            uint32_t liTargetLength,
+            const char* lpcText,
+            CgsLanguage::LanguageManager::ParameterFormatType leFormat
+        )
+    */
+    inline bool LanguageManager_FormatText(char* buffer, uint32_t bufferSize, const char* text, LanguageManager_TextFormatType textFormatType)
     {
         bool result = false;
 
         __asm
         {
-            push dword ptr [format]
+            push dword ptr [textFormatType]
             push dword ptr [text]
             push dword ptr [bufferSize]
             push dword ptr [buffer]
@@ -61,7 +70,11 @@ namespace BPR
         return result;
     }
 
-    // const CgsUnicode::CgsUtf8* __thiscall CgsLanguage::LanguageManager::FindString(const char*)
+    /*
+        const CgsUnicode::UnicodeBuffer::CgsUtf8* __thiscall CgsLanguage::LanguageManager::FindString(
+            const char* lpcStringID
+        ) const
+    */
     inline const char* LanguageManager_FindString(const char* stringID)
     {
         const char* string = nullptr;
@@ -71,7 +84,7 @@ namespace BPR
             push dword ptr [stringID]
             mov ecx, dword ptr ds:[0x013FC8E0]
             add ecx, 0x7A0E34
-            
+
             mov eax, 0x0089C6D0
             call eax
 
