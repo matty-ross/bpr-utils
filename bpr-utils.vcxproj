@@ -168,7 +168,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="include\bpr\CgsID.hpp" />
-    <ClInclude Include="include\bpr\CgsLanguage.hpp" />
+    <ClInclude Include="include\bpr\Language.hpp" />
     <ClInclude Include="include\bpr\CgsResource.hpp" />
     <ClInclude Include="include\bpr\GameActions.hpp" />
     <ClInclude Include="include\bpr\GameEvents.hpp" />

@@ -18,7 +18,7 @@
     <ClInclude Include="include\bpr\CgsID.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\bpr\CgsLanguage.hpp">
+    <ClInclude Include="include\bpr\Language.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="include\bpr\CgsResource.hpp">
