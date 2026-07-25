@@ -13,10 +13,14 @@ namespace BPR
     };
     
     
-    // uint64_t CgsResource::ID::HashString(const RwChar*)
-    inline uint64_t ResourceID_GetHash(const char* resourceName)
+    /*
+        uint64_t CgsResource::ID::HashString(
+            const RwChar* lpcString
+        )
+    */
+    inline uint64_t ResourceID_HashString(const char* resourceName)
     {
-        uint64_t id = 0;
+        uint64_t hash = 0;
         
         __asm
         {
@@ -25,14 +29,21 @@ namespace BPR
             mov eax, 0x008FD5B0
             call eax
 
-            mov dword ptr [id + 0x0], eax
-            mov dword ptr [id + 0x4], edx
+            mov dword ptr [hash + 0x0], eax
+            mov dword ptr [hash + 0x4], edx
         }
 
-        return id;
+        return hash;
     }
     
-    // CgsResource::Entry* __thiscall CgsResource::Pool::FindResource(bool, uint8_t, int32_t*, CgsResource::ID)
+    /*
+        CgsResource::Entry* __thiscall CgsResource::Pool::FindResource(
+            CgsResource::ID lId,
+            bool lbAllowNoRef,
+            uint16_t lxStatus,
+            int32_t* lpiOutIndex
+        )
+    */
     inline void* ResourcePool_FindResource(void* resourcePool, bool allowNoRef, uint8_t status, int32_t* index, uint64_t id)
     {
         void* resource = nullptr;
@@ -57,25 +68,25 @@ namespace BPR
         return resource;
     }
 
-    inline Resource* PoolModule_FindResource(const char* resourceName)
-    {
-        uint64_t resourceId = ResourceID_GetHash(resourceName);
+    //inline Resource* PoolModule_FindResource(const char* resourceName)
+    //{
+    //    uint64_t resourceId = ResourceID_GetHash(resourceName);
 
-        for (int i = 0; i < 128; ++i)
-        {
-            uintptr_t resourcePool = *reinterpret_cast<uintptr_t*>(0x013FC8E0) + 0x64E628 + i * 0x1D8;
-            
-            int32_t poolId = *reinterpret_cast<int32_t*>(resourcePool + 0x118);
-            if (poolId != -1)
-            {
-                void* resourceEntry = ResourcePool_FindResource(reinterpret_cast<void*>(resourcePool), false, 2, nullptr, resourceId);
-                if (resourceEntry != nullptr)
-                {
-                    return reinterpret_cast<Resource*>(reinterpret_cast<uintptr_t>(resourceEntry) + 0x28);
-                }
-            }
-        }
+    //    for (int i = 0; i < 128; ++i)
+    //    {
+    //        uintptr_t resourcePool = *reinterpret_cast<uintptr_t*>(0x013FC8E0) + 0x64E628 + i * 0x1D8;
+    //        
+    //        int32_t poolId = *reinterpret_cast<int32_t*>(resourcePool + 0x118);
+    //        if (poolId != -1)
+    //        {
+    //            void* resourceEntry = ResourcePool_FindResource(reinterpret_cast<void*>(resourcePool), false, 2, nullptr, resourceId);
+    //            if (resourceEntry != nullptr)
+    //            {
+    //                return reinterpret_cast<Resource*>(reinterpret_cast<uintptr_t>(resourceEntry) + 0x28);
+    //            }
+    //        }
+    //    }
 
-        return nullptr;
-    }
+    //    return nullptr;
+    //}
 }
