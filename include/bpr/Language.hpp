@@ -9,7 +9,7 @@ namespace BPR
     /*
         enum CgsLanguage::LanguageManager::ParameterFormatType
     */
-    enum class Language_TextFormatType
+    enum class LanguageManager_TextFormatType
     {
         Text = 0,                     // "text" -> "text"
         TimeOfDay = 1,                // "12345.6789" -> "03:25 am"
@@ -48,7 +48,7 @@ namespace BPR
             CgsLanguage::LanguageManager::ParameterFormatType leFormat
         )
     */
-    inline bool Language_FormatText(char* buffer, uint32_t bufferSize, const char* text, Language_TextFormatType textFormatType)
+    inline bool LanguageManager_FormatText(char* buffer, uint32_t bufferSize, const char* text, LanguageManager_TextFormatType textFormatType)
     {
         bool result = false;
 
@@ -75,7 +75,7 @@ namespace BPR
             const char* lpcStringID
         ) const
     */
-    inline const char* Language_FindString(const char* stringID)
+    inline const char* LanguageManager_FindString(const char* stringID)
     {
         const char* string = nullptr;
 
