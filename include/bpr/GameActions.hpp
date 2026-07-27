@@ -6,18 +6,24 @@
 
 namespace BPR
 {
-    // bool __thiscall CgsModule::VariableEventQueue<13312, 16>::AddEvent(const CgsModule::Event*, int32_t, int32_t)
+    /*
+        bool __thiscall CgsModule::VariableEventQueue<13312, 16>::AddEvent(
+            const CgsModule::Event* lpEvent,
+            int32_t liEventId,
+            int32_t liEventSize
+        )
+    */
     inline bool GameActionQueue_AddGameAction(void* gameActionQueue, const void* gameAction, int32_t gameActionID, int32_t gameActionSize)
     {
         bool result = false;
-        
+
         __asm
         {
             push dword ptr [gameActionSize]
             push dword ptr [gameActionID]
             push dword ptr [gameAction]
             mov ecx, dword ptr [gameActionQueue]
-            
+
             mov eax, 0x004C0590
             call eax
 
@@ -70,7 +76,9 @@ namespace BPR
     };
 
 
-    // BrnGameState::GameStateModuleIO::ResetPlayerCarAction
+    /*
+        struct BrnGameState::GameStateModuleIO::ResetPlayerCarAction
+    */
     struct GameAction_ResetPlayerVehicle
     {
         // BrnGameState::GameStateModuleIO::EGameActionType::E_ACTION_RESET_PLAYER_CAR
@@ -93,21 +101,25 @@ namespace BPR
         int32_t Unknown2;
     };
 
-    // BrnGameState::GameStateModuleIO::ResetPlayerCarOnTrackAction
+    /*
+        struct BrnGameState::GameStateModuleIO::ResetPlayerCarOnTrackAction
+    */
     struct GameAction_ResetPlayerVehicleOnTrack
     {
         // BrnGameState::GameStateModuleIO::EGameActionType::E_ACTION_RESET_PLAYER_CAR_ON_TRACK
         static constexpr int32_t ID = 3;
-        
+
         float Speed;
     };
 
-    // BrnGameState::GameStateModuleIO::SetupNetworkCarAction
+    /*
+        struct BrnGameState::GameStateModuleIO::SetupNetworkCarAction
+    */
     struct GameAction_SetupNetworkVehicle
     {
         // BrnGameState::GameStateModuleIO::EGameActionType::E_ACTION_SETUP_NETWORK_CAR
         static constexpr int32_t ID = 5;
-        
+
         alignas(16) float Position[4];
         alignas(16) float At[4];
         uint64_t VehicleID;
@@ -117,7 +129,9 @@ namespace BPR
         float DeformationAmount;
     };
 
-    // BrnGameState::GameStateModuleIO::SetPlayerCarDriverAction
+    /*
+        struct BrnGameState::GameStateModuleIO::SetPlayerCarDriverAction
+    */
     struct GameAction_SetPlayerVehicleDriver
     {
         // BrnGameState::GameStateModuleIO::EGameActionType::E_ACTION_SET_PLAYER_CAR_DRIVER
@@ -134,26 +148,32 @@ namespace BPR
         bool IsDriveThru;
     };
 
-    // BrnGameState::GameStateModuleIO::PauseSimulationAction
+    /*
+        struct BrnGameState::GameStateModuleIO::PauseSimulationAction
+    */
     struct GameAction_PauseSimulation
     {
         // BrnGameState::GameStateModuleIO::EGameActionType::E_ACTION_PAUSE_SIMULATION
         static constexpr int32_t ID = 100;
     };
 
-    // BrnGameState::GameStateModuleIO::UnpauseSimulationAction
+    /*
+        struct BrnGameState::GameStateModuleIO::UnpauseSimulationAction
+    */
     struct GameAction_UnpauseSimulation
     {
         // BrnGameState::GameStateModuleIO::EGameActionType::E_ACTION_UNPAUSE_SIMULATION
         static constexpr int32_t ID = 101;
     };
 
-    // BrnGameState::GameStateModuleIO::SetBoostAction
+    /*
+        struct BrnGameState::GameStateModuleIO::SetBoostAction
+    */
     struct GameAction_SetBoost
     {
         // BrnGameState::GameStateModuleIO::EGameActionType::E_ACTION_SET_BOOST
         static constexpr int32_t ID = 197;
-        
+
         int32_t ActiveRaceVehicleIndex;
         struct
         {
@@ -171,12 +191,14 @@ namespace BPR
         bool BoostMessagesEnabled;
     };
 
-    // BrnGameState::GameStateModuleIO::SendCarStatsAction
+    /*
+        struct BrnGameState::GameStateModuleIO::SendCarStatsAction
+    */
     struct GameAction_UpdateVehicleStats
     {
         // BrnGameState::GameStateModuleIO::EGameActionType::E_ACTION_UPDATE_CAR_STATS
         static constexpr int32_t ID = 230;
-        
+
         int32_t Speed;
         int32_t Strength;
         int32_t BoostLossLevel;
