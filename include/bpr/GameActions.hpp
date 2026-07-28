@@ -51,7 +51,9 @@ namespace BPR
         Locked = 4,
     };
 
-    // BrnWorld::CarControl
+    /*
+        enum BrnWorld::CarControl
+    */
     enum class PlayerVehicleDriver
     {
         None = 0,
@@ -59,7 +61,9 @@ namespace BPR
         AI = 2,
     };
 
-    // BrnPhysics::Deformation::DeformationResetType
+    /*
+        enum BrnPhysics::Deformation::DeformationResetType
+    */
     enum class DeformationType
     {
         None = -1,
@@ -67,7 +71,9 @@ namespace BPR
         VehicleSelect = 1,
     };
 
-    // BrnGameState::GameStateModuleIO::ResetPlayerCarAction::CarSelectType
+    /*
+        enum BrnGameState::GameStateModuleIO::ResetPlayerCarAction::CarSelectType
+    */
     enum class VehicleSelectType
     {
         DontDrop = 0,
