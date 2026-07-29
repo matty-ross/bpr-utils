@@ -23,7 +23,7 @@ namespace BPR
         MinutesSecondsMidText = 9,    // "12345.6789" -> "205 Min 46 Secs"
         IdLookup = 10,                // "CAR_PUSMC01" -> "Cavalry"
         IdLookupToUpper = 11,         // "CAR_PUSMC01" -> "CAVALRY"
-        Unknown1 = 12,                // "12345.6789" -> "12,345.67"
+        Real = 12,                    // "12345.6789" -> "12,345.67"
         Integer = 13,                 // "12345.6789" -> "12,345"
         LargeInteger = 14,            // "12345.6789" -> "12,345"
         IntegerNoSeparator = 15,      // "12345.6789" -> "12345"
@@ -36,7 +36,7 @@ namespace BPR
         SmallDistanceRounded = 22,    // "12345.6789" -> "12,350 m"
         LargeDistance = 23,           // "12345.6789" -> "12.3 km"
         LargeDistanceLong = 24,       // "12345.6789" -> "12.3 Kilometers"
-        Unknown2 = 25,                // "12345.6789" -> "12,345 "
+        Unknown = 25,                 // "12345.6789" -> "12,345 "
     };
 
 
