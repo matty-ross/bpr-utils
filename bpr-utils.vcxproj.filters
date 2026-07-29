@@ -15,6 +15,9 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="include\bpr\Types.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
     <ClInclude Include="include\bpr\CgsID.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
