@@ -170,9 +170,11 @@
     <ClInclude Include="include\bpr\Types.hpp" />
     <ClInclude Include="include\bpr\CgsID.hpp" />
     <ClInclude Include="include\bpr\Language.hpp" />
-    <ClInclude Include="include\bpr\CgsResource.hpp" />
-    <ClInclude Include="include\bpr\GameActions.hpp" />
     <ClInclude Include="include\bpr\GameEvents.hpp" />
+    <ClInclude Include="include\bpr\GameActions.hpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\Dummy.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

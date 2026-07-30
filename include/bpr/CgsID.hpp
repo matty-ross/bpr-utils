@@ -30,32 +30,12 @@ namespace BPR
     }
 
     /*
-        void CgsIDUnCompress(
-            CgsID lID,
-            char* lcpString
-        )
-    */
-    inline void CgsID_Uncompress(uint64_t id, char* string)
-    {
-        __asm
-        {
-            mov ecx, dword ptr [string]
-            push dword ptr [id + 0x4]
-            push dword ptr [id + 0x0]
-
-            mov eax, 0x0086CE40
-            call eax
-            add esp, 0x8
-        }
-    }
-
-    /*
         void CgsIDConvertToString(
             CgsID lID,
             char* lpcString
         )
     */
-    inline void CgsID_ConvertToString(uint64_t id, char* string)
+    inline void CgsID_Uncompress(uint64_t id, char* string)
     {
         __asm
         {

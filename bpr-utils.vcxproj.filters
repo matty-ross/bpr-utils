@@ -24,14 +24,16 @@
     <ClInclude Include="include\bpr\Language.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\bpr\CgsResource.hpp">
+    <ClInclude Include="include\bpr\GameEvents.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="include\bpr\GameActions.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\bpr\GameEvents.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\Dummy.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
